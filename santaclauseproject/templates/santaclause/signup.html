@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}
+<form method="post" class="BodyContents">
+    {% csrf_token %}
+    <h2>ユーザー新規登録</h2>
+    {% include 'santaclause/includes/form.html' %}
+    <button type="submit" class="btn btn-success">新規作成</button>
+</form>
+{% endblock body %}

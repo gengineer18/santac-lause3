@@ -1,0 +1,43 @@
+{% for field in form %}
+    {% if field.id_for_label == "id_title" or field.id_for_label == "id_conclusion" %}
+        {% include "santaclause/includes/form_present.html" %}
+    {% endif %}
+{% endfor %}
+
+<p>プレゼントを3つシェアしよう！</p>
+
+<ul class="nav nav-tabs mt-3 mb-3">
+    <li class="nav-item">
+        <a class="nav-link active" href="#tab1" data-toggle="tab">プレゼント1</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#tab2" data-toggle="tab">プレゼント2</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#tab3" data-toggle="tab">プレゼント3</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div id="tab1" class="tab-pane active">
+        {% for field in form %}
+            {% if field.id_for_label == "id_topic1" or field.id_for_label == "id_image1" or field.id_for_label == "id_contents1" %}
+                {% include "santaclause/includes/form_present.html" %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="tab2" class="tab-pane">
+        {% for field in form %}
+            {% if field.id_for_label == "id_topic2" or field.id_for_label == "id_image2" or field.id_for_label == "id_contents2" %}
+                {% include "santaclause/includes/form_present.html" %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div id="tab3" class="tab-pane">
+        {% for field in form %}
+            {% if field.id_for_label == "id_topic3" or field.id_for_label == "id_image3" or field.id_for_label == "id_contents3" %}
+                {% include "santaclause/includes/form_present.html" %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

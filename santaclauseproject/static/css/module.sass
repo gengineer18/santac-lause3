@@ -1,0 +1,165 @@
+@charset "UTF-8"
+
+/* common */
+#Header
+  background-color: $main_color
+  color: $sub_font_color
+
+#HeaderInner
+  max-width: $base_width
+  margin: 0 auto
+  padding: 5px 10px
+
+#HeaderInner__navi
+  width: $base_width * 0.49
+  float: left
+  ul
+    letter-spacing: -0.4em
+  li
+    display: inline-block
+    width: 50%
+    letter-spacing: normal
+
+#HeaderInner__right
+  width: $base_width * 0.49
+  padding: 5px
+  display: inline-block
+  float: left
+  text-align: right
+  font-size: 9px
+
+.BodyContents
+  border: $border_set
+  background-color: $contents_color
+  padding: 15px
+  word-wrap: break-word
+  h2
+    margin-bottom: 15px
+
+// main
+#main
+  width: 100%
+  height: 100%
+  min-height: 100%
+
+#main-container
+  margin: 0 auto
+  max-width: $base_width
+  min-height: 100%
+
+#main-container:after
+  content: ""
+  display: block
+  clear: both
+
+#main-container__visual
+  background-image: url("#{$logo_pass}santac-lause.png")
+  background-size: cover
+  background-position: center center
+  background-repeat: no-repeat
+  width: 100%
+  height: 250px
+  position: relative
+
+#main-container__description
+  position: absolute
+  top: 40px
+  left: 50%
+  transform: translateX(-50%)
+  white-space: nowrap
+  text-align: center
+  color: #FFF
+  text-shadow: 1px 1px 1px #000
+  box-sizing: border-box
+  display: block
+  background: rgba(0, 0, 0, 0.25)
+  width: 100%
+  padding: 10px
+  h2
+    font-size: 28px
+    font-weight: bold
+  p
+    font-size: 18px
+    font-weight: bold
+    margin-top: 5px
+
+
+// 画像
+img.icon_size
+ width: 60px
+ height: 60px
+
+// ボタン
+.btn-red
+  color: #fff
+  background-color: #CC0000
+  border-color: #fff
+
+.btn-red:hover
+  color: #fff
+  background-color: #E90000
+  border-color: #fff
+
+.btn-red.focus,.btn-red:focus
+  box-shadow: 0 0 0 .2rem rgba(255,255,255,.5)
+
+.btn-red.disabled,.btn-red:disabled
+  color: #fff
+  background-color: #CC0000
+  border-color: #CC0000
+
+.btn-red:not(:disabled):not(.disabled).active,.btn-red:not(:disabled):not(.disabled):active,.show>.btn-red.dropdown-toggle
+  color: #fff
+  background-color: #CC0000
+  border-color: #CC0000
+
+.btn-red:not(:disabled):not(.disabled).active:focus,.btn-red:not(:disabled):not(.disabled):active:focus,.show>.btn-red.dropdown-toggle:focus
+  box-shadow: 0 0 0 .2rem rgba(255,255,255,.5)
+
+//ページネーション
+.page-item-santaclause:first-child .page-link-santaclause
+  margin-left: 0
+  border-top-left-radius: .25rem
+  border-bottom-left-radius: .25rem
+
+.page-item-santaclause:last-child .page-link-santaclause
+  border-top-right-radius: .25rem
+  border-bottom-right-radius: .25rem
+
+.page-item-santaclause.active .page-link-santaclause
+  z-index: 1
+  color: #fff
+  background-color: $main_color
+  border-color: $main_color
+
+.page-item-santaclause.disabled .page-link-santaclause
+  color: #6c757d
+  pointer-events: none
+  cursor: auto
+  background-color: $base_color
+  border-color: $border_color
+
+.page-link-santaclause
+  position: relative
+  display: block
+  padding: .5rem .75rem
+  margin-left: -1px
+  line-height: 1.25
+  color: $sub_color
+  background-color: $base_color
+  border: 1px solid $border_color
+
+.page-link-santaclause:hover
+  z-index: 2
+  color: #fff
+  text-decoration: none
+  background-color: $sub_color
+  border-color: $border_color
+
+.page-link-santaclause:focus
+  z-index: 2
+  outline: 0
+  box-shadow: 0 0 0 .2rem $sub_color
+
+.page-link-santaclause:not(:disabled):not(.disabled)
+  cursor: pointer

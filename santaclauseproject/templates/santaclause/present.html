@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block body %}
+<form method="post" enctype="multipart/form-data" class="BodyContents">
+    {% csrf_token %}
+    <h2>プレゼント</h2>
+    {% include "santaclause/includes/present.html" %}
+    <button type="submit" class="btn btn-success">プレゼント</button>
+</form>
+{% endblock body %}

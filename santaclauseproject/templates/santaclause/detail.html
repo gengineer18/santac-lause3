@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% block body %}
+{% load static %}
+<div class="BodyContents">
+    <h1>{{ present.title }}</h1>
+    <div class="Detail__presenter pb-3 pt-3">
+        {% if profile.icon %}
+            <img src="{{ profile.icon.url }}" class="icon_size" />
+        {% else %}
+            <img src="{% static 'img/default_icon.png' %}" class="icon_size" />
+        {% endif %}
+        プレゼンター：{{ profile.user }}
+        <a onclick="api_favorite()" class="btn Detail__btn-fav">★<span id="favorite">{{ present.favorite }}</span></a>
+    </div>
+    <div class="col mt-3"><p>{{ present.conclusion }}</p></div>
+    <div class="swiper-parent Detail__swiper-parent">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide container">
+                    <div class="row">
+                        <div class="col"><h2>1.{{ present.topic1 }}</h2></div>
+                    </div>
+                    <div class="row">
+                        {% if not present.image1 == "" %}
+                            <div class="col text-center mb-4"><img src="{{ present.image1.url }}" class="Detail__image-size" /></div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col">{{ present.contents1 }}</div>
+                    </div>
+                </div>
+                <div class="swiper-slide container">
+                    <div class="row">
+                        <div class="col"><h2>2.{{ present.topic2 }}</h2></div>
+                    </div>
+                    <div class="row">
+                        {% if not present.image2 == "" %}
+                            <div class="col text-center mb-4"><img src="{{ present.image2.url }}" class="Detail__image-size" /></div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col">{{ present.contents2 }}</div>
+                    </div>
+                </div>
+                <div class="swiper-slide container">
+                    <div class="row">
+                        <div class="col"><h2>3.{{ present.topic3 }}</h2></div>
+                    </div>
+                    <div class="row">
+                        {% if not present.image3 == "" %}
+                            <div class="col text-center mb-4"><img src="{{ present.image3.url }}" class="Detail__image-size" /></div>
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        <div class="col">{{ present.contents3 }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    {% if present.user_id == user.id or user.is_superuser %}
+    <div class="m-3">
+        <a class="btn btn-success" href="{% url 'santaclause:edit' present.pk %}">編集</a>
+        <a class="btn btn-dark" href="{% url 'santaclause:delete' present.pk %}">削除</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock body %}
+
+
+{% block js %}
+    {{ block.super }}
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+            },
+            loop: true,
+            autoHeight: true,
+        });
+    </script>
+    <script>
+        function api_favorite() {
+            const api_url = "{% url 'santaclause:api_favorite' present.pk %}";
+            const btn = document.getElementById("favorite");
+            const request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                if (request.readyState === 4 && request.status === 200){
+                    let received_data = JSON.parse(request.responseText);
+                    btn.innerText = received_data.favorite;
+                }
+            }
+            request.open("GET", api_url);
+            request.send();
+        }
+    </script>
+{% endblock js %}

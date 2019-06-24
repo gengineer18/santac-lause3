@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body %}
+<form method="post" class="BodyContents">
+    {% csrf_token %}
+    <h2>アカウント情報</h2>
+    <div class="container">
+        <div class="row">
+            <label for="subject1">ユーザー名</label>
+        </div>
+        <div class="row mb-3">
+            <div class="col">{{ user.username }}</div>
+        </div>
+        <div class="row">
+            <label for="subject1">e-mail</label>
+        </div>
+        <div class="row mb-3">
+            <div class="col">{{ user.email }}</div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">編集</button>
+</form>
+{% endblock body %}

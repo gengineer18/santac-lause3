@@ -1,0 +1,125 @@
+@charset "UTF-8";
+html { font: 100%/1.5 "メイリオ", "Meiryo", verdana, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", Sans-Serif; line-height: 1.7; letter-spacing: 1px; }
+
+body { background-color: #f0f0f0; margin: 0; min-height: 1vh; }
+
+html, body { min-height: 94%; }
+
+ul, li { list-style-type: none; padding: 0; margin: 0; }
+
+a { text-decoration: none; font-size: 14px; color: #000; }
+
+a:hover { color: #CC0000; }
+
+h1, h2, h3, h4, h5, h6, p { margin: 0; }
+
+input { background-color: transparent; outline-width: 0; }
+
+form input[type="submit"] { border: none; cursor: pointer; }
+
+div { font-size: 14px; line-height: 1.4em; }
+
+/* common */
+#Header { background-color: #CC0000; color: #FFF; }
+
+#HeaderInner { max-width: 1170px; margin: 0 auto; padding: 5px 10px; }
+
+#HeaderInner__navi { width: 573.3px; float: left; }
+
+#HeaderInner__navi ul { letter-spacing: -0.4em; }
+
+#HeaderInner__navi li { display: inline-block; width: 50%; letter-spacing: normal; }
+
+#HeaderInner__right { width: 573.3px; padding: 5px; display: inline-block; float: left; text-align: right; font-size: 9px; }
+
+.BodyContents { border: 1px solid #999; background-color: #fdfdfd; padding: 15px; word-wrap: break-word; }
+
+.BodyContents h2 { margin-bottom: 15px; }
+
+#main { width: 100%; height: 100%; min-height: 100%; }
+
+#main-container { margin: 0 auto; max-width: 1170px; min-height: 100%; }
+
+#main-container:after { content: ""; display: block; clear: both; }
+
+#main-container__visual { background-image: url("../img/santac-lause.png"); background-size: cover; background-position: center center; background-repeat: no-repeat; width: 100%; height: 250px; position: relative; }
+
+#main-container__description { position: absolute; top: 40px; left: 50%; transform: translateX(-50%); white-space: nowrap; text-align: center; color: #FFF; text-shadow: 1px 1px 1px #000; box-sizing: border-box; display: block; background: rgba(0, 0, 0, 0.25); width: 100%; padding: 10px; }
+
+#main-container__description h2 { font-size: 28px; font-weight: bold; }
+
+#main-container__description p { font-size: 18px; font-weight: bold; margin-top: 5px; }
+
+img.icon_size { width: 60px; height: 60px; }
+
+.btn-red { color: #fff; background-color: #CC0000; border-color: #fff; }
+
+.btn-red:hover { color: #fff; background-color: #E90000; border-color: #fff; }
+
+.btn-red.focus, .btn-red:focus { box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5); }
+
+.btn-red.disabled, .btn-red:disabled { color: #fff; background-color: #CC0000; border-color: #CC0000; }
+
+.btn-red:not(:disabled):not(.disabled).active, .btn-red:not(:disabled):not(.disabled):active, .show > .btn-red.dropdown-toggle { color: #fff; background-color: #CC0000; border-color: #CC0000; }
+
+.btn-red:not(:disabled):not(.disabled).active:focus, .btn-red:not(:disabled):not(.disabled):active:focus, .show > .btn-red.dropdown-toggle:focus { box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5); }
+
+.page-item-santaclause:first-child .page-link-santaclause { margin-left: 0; border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; }
+
+.page-item-santaclause:last-child .page-link-santaclause { border-top-right-radius: .25rem; border-bottom-right-radius: .25rem; }
+
+.page-item-santaclause.active .page-link-santaclause { z-index: 1; color: #fff; background-color: #CC0000; border-color: #CC0000; }
+
+.page-item-santaclause.disabled .page-link-santaclause { color: #6c757d; pointer-events: none; cursor: auto; background-color: #f0f0f0; border-color: #999; }
+
+.page-link-santaclause { position: relative; display: block; padding: .5rem .75rem; margin-left: -1px; line-height: 1.25; color: #006400; background-color: #f0f0f0; border: 1px solid #999; }
+
+.page-link-santaclause:hover { z-index: 2; color: #fff; text-decoration: none; background-color: #006400; border-color: #999; }
+
+.page-link-santaclause:focus { z-index: 2; outline: 0; box-shadow: 0 0 0 0.2rem #006400; }
+
+.page-link-santaclause:not(:disabled):not(.disabled) { cursor: pointer; }
+
+.PostedContents { border: 1px solid #999; background-color: #fdfdfd; }
+
+.PostedContents:after { content: ""; display: block; clear: both; }
+
+.PostedContents__left { float: left; }
+
+.PostedContents__center { float: left; margin: 15px; }
+
+.PostedContents__right { float: right; }
+
+@media only screen and (max-width: 576px) { .PostedContents__right { display: none !important; } }
+
+.Left__icon { width: 60px; height: 60px; margin: 15px; }
+
+@media only screen and (max-width: 576px) { .Left__icon { display: none !important; } }
+
+.Center__title { font-weight: bold; font-size: large; }
+
+.CenterBottom:after { content: ""; display: block; clear: both; }
+
+.CenterBottom__favorite { font-weight: bold; color: #EC1; }
+
+.Right__thumbnail { width: 160px; border: 1px solid #999; margin: 15px; }
+
+.Contentside { border: 1px solid #999; background-color: #fdfdfd; padding: 10px; }
+
+.Contentside__favorite { font-weight: bold; color: #EC1; text-decoration: underline; }
+
+.Detail__btn-fav { background-color: #EC1; color: #FFF; margin-left: 10px; }
+
+.Detail__presenter { font-weight: bold; font-size: 16px; border-bottom: #999 1px solid; }
+
+.Detail__presenter img { margin-right: 10px; }
+
+.Detail__swiper-parent { position: relative; padding: 10px; }
+
+.Detail__container { width: calc(100% - 20px); box-sizing: content-box; }
+
+.Detail__image-size { max-width: 600px; }
+
+@media only screen and (max-width: 576px) { .Detail__image-size { max-width: 240px; } }
+
+/*# sourceMappingURL=style.css.map */

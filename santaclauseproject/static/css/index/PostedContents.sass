@@ -1,0 +1,25 @@
+@charset "UTF-8"
+
+.PostedContents
+  border: $border_set
+  background-color: $contents_color
+
+.PostedContents:after
+  content: ""
+  display: block
+  clear: both
+
+.PostedContents__left
+  float: left
+
+.PostedContents__center
+  float: left
+  margin: 15px
+
+.PostedContents__right
+  float: right
+
+@media only screen and (max-width: 576px)
+  .PostedContents__right
+    display: none !important
+

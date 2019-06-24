@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="BodyContents">
+    <form method="post">
+        {% csrf_token %}
+        <h2>ユーザープロフィール</h2>
+        <div class="container">
+            <div class="row">
+                <label for="subject1">ユーザー名</label>
+            </div>
+            <div class="row mb-3">
+                <div class="col">{{ user.username }}</div>
+            </div>
+            <div class="row">
+                <label for="subject1">自己紹介</label>
+            </div>
+            <div class="row mb-3">
+                <div class="col">{{ profile.introduce }}</div>
+            </div>
+            <div class="row">
+                <label for="subject1">場所</label>
+            </div>
+            <div class="row mb-3">
+                <div class="col">{{ profile.location }}</div>
+            </div>
+            <div class="row">
+                <label for="subject1">Web</label>
+            </div>
+            <div class="row mb-3">
+                <div class="col"><a href="{{ profile.web_site }}" target="_blank">{{ profile.web_site }}</a></div>
+            </div>
+            <div class="row">
+                <label for="subject1">アイコン</label>
+            </div>
+            <div class="row mb-3">
+                {% if not profile.icon == "" or profile.icon is None %}
+                    <div class="col"><img src="{{ profile.icon.url }}" class="icon_size" /></div>
+                {% endif %}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">編集</button>
+    </form>
+</div>
+{% endblock body %}

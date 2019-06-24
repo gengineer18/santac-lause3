@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block body %}
+    {% for present in presents %}
+    <a href="{% url 'santaclause:detail' present.pk %}">
+        <div class="PostedContents mb-3">
+            <div class="PostedContents__left">
+                <div class="Left__icon">
+                    {% if present.user.icon %}
+                        <img src="{{ present.user.icon.url }}" class="icon_size" />
+                    {% else %}
+                        <img src="{% static 'img/default_icon.png' %}" class="icon_size" />
+                    {% endif %}
+                </div>
+            </div>
+            <div class="PostedContents__center">
+                <div class="Center__date">
+                    {{ present.create_date }}
+                </div>
+                <div class="Center__title">
+                    {{ present.title|truncatechars:35 }}
+                </div>
+                <div class="Center__choices">
+                    ・{{ present.topic1|truncatechars:10 }} ・{{ present.topic2|truncatechars:10 }} ・{{ present.topic3|truncatechars:10 }}
+                </div>
+                <div class="PostedContents__centerBottom">
+                    <div class="CenterBottom__favorite">
+                        ★{{ present.favorite }}
+                    </div>
+                </div>
+            </div>
+            <div class="PostedContents__right">
+                {% if present.image1 %}
+                <div>
+                    <img src="{{ present.image1.url }}" class="Right__thumbnail" />
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+    {% include "santaclause/includes/pagination.html" %}
+{% endblock %}

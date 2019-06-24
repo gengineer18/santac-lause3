@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<form method="post" class="BodyContents" novalidate>
+    {% csrf_token %}
+    <h2>ログイン</h2>
+    {% include 'santaclause/includes/form.html' %}
+    <button type="submit" class="btn btn-success">ログイン</button>
+    <button type="submit" class="btn btn-info ml-2" onclick="testuser()">テストユーザーでログイン</button>
+</form>
+
+<script>
+    function testuser(){
+        document.getElementById("id_username").value = "testuser";
+        document.getElementById("id_password").value = "tespas123";
+    }
+</script>
+{% endblock body %}

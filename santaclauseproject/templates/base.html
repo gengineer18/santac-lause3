@@ -1,0 +1,88 @@
+{% load static %}
+{% load sass_tags %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Santac-Lause</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper.css' %}">
+</head>
+<body>
+
+{% block header %}
+<nav class="navbar navbar-expand-sm navbar-dark" id="Header">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'santaclause:index' %}">
+            <img src="{% static 'img/logo.png' %}" />
+        </a>
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse"
+                data-target="#navmenu1"
+                aria-controls="navmenu1"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navmenu1">
+            <div class="navbar-nav ml-auto">
+            {% if user.is_authenticated %}
+                <a class="btn btn-red" href="{% url 'santaclause:present' %}">プレゼント</a>
+                <li class="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labeledby="userMenu">
+                        <a class="dropdown-item" href="{% url 'santaclause:account_info' user.pk %}">アカウント情報</a>
+                        <a class="dropdown-item" href="{% url 'santaclause:user_info' user.pk %}">ユーザープロフィール</a>
+                        <a class="dropdown-item" href="{% url 'santaclause:logout' %}">ログアウト</a>
+                    </div>
+                </li>
+            {% else %}
+                <a class="btn btn-red m-1" href="{% url 'santaclause:signup' %}">新規登録</a>
+                <a class="btn btn-success m-1" href="{% url 'santaclause:login' %}">ログイン</a>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</nav>
+{% endblock header %}
+
+<div id="main" class="container">
+    <div id="main-container" class="row">
+        {% if not user.is_authenticated %}
+            <div class="mt-2" id="main-container__visual">
+
+                <div id="main-container__description">
+                    <h2>Welcome to Santac-Lause!</h2>
+                    <p>Santac-Lauseはあなたのおすすめを</p>
+                    <p>3つの選択肢としてまとめ、</p>
+                    <p>共有(プレゼント)できる</p>
+                    <p>キュレーションサービスです。</p>
+                    <p>Share your 3 choices!</p>
+                </div>
+            </div>
+        {% endif %}
+        <div class="col-xl-9 col-lg-12 mt-3 mb-3">
+            {% block body %}{% endblock body %}
+        </div>
+        <div class="col-xl-3 d-lg-block">
+            {% block content-side %}
+                {% include "santaclause/includes/content-side.html" %}
+            {% endblock content-side %}
+        </div>
+    </div>  <!-- end div main-container -->
+</div>  <!-- end div main -->
+
+{% block js %}
+    <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/swiper.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+{% endblock js %}
+
+</body>
+</html>
